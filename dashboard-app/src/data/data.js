@@ -26,14 +26,14 @@ export const transactions = [
         id: 12, 
         name: "Continer IdA1",
         image: personsImgs.person_three,
-        date: "23/07/21",
+        date: "24/01/10",
         amount: 20000
     },
     {
         id: 13, 
         name: "Continer QY1A",
         image: personsImgs.person_two,
-        date: "23/08/25",
+        date: "24/01/01",
         amount: 30000
     }
 ];
@@ -74,34 +74,36 @@ export const reportData = [
 export const budget = [
     {
         id: 19, 
-        title: "Subscriptions",
+        title: "Containers Payment",
         type: "Automated",
-        amount: 22000
+        amount: 220000
     },
     {
         id: 20, 
-        title: "Loan Payment",
+        title: "IoT Contract",
         type: "Automated",
         amount: 16000
     },
     {
         id: 21, 
-        title: "Foodstuff",
-        type: "Automated",
+        title: "Damarage",
+        type: "Manual",
         amount: 20000
     },
     {
-        id: 22, 
-        title: "Subscriptions",
-        type: null,
-        amount: 10000
-    },
-    {
         id: 23, 
-        title: "Subscriptions",
-        type: null,
+        title: "Taxes",
+        type: "Automated",
         amount: 40000
-    }
+    },
+
+    {
+        id: 231, 
+        title: "Electricity",
+        type: "Semi-Automated",
+        amount: 40000
+    }, 
+
 ];
 
 export const alerts = [
@@ -140,10 +142,9 @@ export const alerts = [
 export const savings = [
     {
         id: 27,
-        image: personsImgs.person_one,
         saving_amount: 250000,
-        title: "Pay kid bro’s fees",
+        title: "Today's Earning",
         date_taken: "23/12/22",
-        amount_left: 40000
+        amount_left: 900000
     }
 ]
