@@ -2,7 +2,7 @@ import { Chart } from "react-google-charts";
 import { iconsImgs } from "../../utils/images";
 import "./deliveryStatus.css";
 
-const deliveryStatus = () => {
+const DeliveryStatus = () => {
   var total = 500000;
   var delivered = 300000;
 
@@ -71,4 +71,4 @@ const deliveryStatus = () => {
   );
 };
 
-export default deliveryStatus;
+export default DeliveryStatus;

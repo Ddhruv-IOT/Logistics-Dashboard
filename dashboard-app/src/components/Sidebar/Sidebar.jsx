@@ -2,16 +2,23 @@ import "./Sidebar.css" // path to css file
 import React from "react" // react import
 import {navigationLinks} from "../../data/data" // import data from data.js
 import { useEffect, useState } from "react"
+// import { Link, useHistory } from 'react-router-dom';
+import { useNavigate  } from "react-router-dom";
 
 // Now left sidebar hide and unhide
 
 const Sidebar = () => {
+  const history = useNavigate();
 
   const [activeLinkIdx, setActiveLinkIdx] = useState(1)
 
-  const handleLinkClick = (event, id) => {
+  const handleLinkClick = (event, id, location) => {
     event.preventDefault();
+    // move to page
+    // window.location.href = location;
+    history(location);
     setActiveLinkIdx(id);
+
   };
 
   // useEffect(() => {})
@@ -28,8 +35,8 @@ const Sidebar = () => {
               {
                 navigationLinks.map((navigationLink) => (
                   <li className="nav-item" key = { navigationLink.id }>
-                    <a href="#"  className= {`nav-link ${navigationLink.id === activeLinkIdx ? 'active': null}`} onClick={(event) =>
-                  handleLinkClick(event, navigationLink.id)
+                    <a href={navigationLink.link}  className= {`nav-link ${navigationLink.id === activeLinkIdx ? 'active': ''}`} onClick={(event) =>
+                  handleLinkClick(event, navigationLink.id, navigationLink.link)
                 }>
                       <img src={ navigationLink.image } className="nav-link-icon" alt = { navigationLink.title } />
                       <span className="nav-link-text">{ navigationLink.title }</span>
