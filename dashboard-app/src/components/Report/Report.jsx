@@ -1,8 +1,32 @@
 import { iconsImgs } from "../../utils/images";
-import "./Report.css";
 import { reportData } from "../../data/data";
+import { useEffect, useState } from "react";
+
+import "./Report.css";
 
 const Report = () => {
+    const [data, setData] = useState(reportData);
+
+    
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/reportData');
+        const data = await response.json();
+        setData(data);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    // setTimeout(() => { setLoadingTime(0), setAvgWeight(0) }, 1);
+    // setTimeout(() => { setLoadingTime(100), setAvgWeight(100) }, 700);
+    setTimeout(fetchData, 300);
+
+  }, [])
+
+
   return (
     <div className="grid-one-item grid-common grid-c3">
         <div className="grid-c-title">
@@ -21,11 +45,11 @@ const Report = () => {
                     <span>0</span>
                 </div>
                 {
-                    reportData.map((report) => (
+                    data.map((report) => (
                         <div className="grid-chart-bar" key={report.id}>
                             <div className="bar-wrapper">
                                 <div className="bar-item1" style={{ height: `${report.value1 !== null ? report.value1+"%" : ""}` }}></div>
-                                {/* <div className="bar-item2" style={{ height: `${report.value2 !== null ? report.value2+"%" : ""}` }}></div> */}
+                                <div className="bar-item2" style={{ height: `${report.value2 !== null ? report.value2+"%" : ""}` }}></div>
                             </div>
                             <span className="grid-hortz-value">{report.month}</span>
                         </div>

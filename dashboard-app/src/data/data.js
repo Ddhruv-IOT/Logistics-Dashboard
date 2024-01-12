@@ -41,32 +41,32 @@ export const reportData = [
     {
         id: 14,
         month: "Aug",
-        value1: 55,
-        value2: 45
+        value1: 0,
+        value2: 50
     },
     {
         id: 15,
         month: "Sep",
-        value1: 68,
-        value2: 33
+        value1: 0,
+        value2: 60
     },
     {
         id: 16,
         month: "Oct",
-        value1: 49,
-        value2: 53
+        value1: 0,
+        value2: 50
     },
     {
         id: 17,
         month: "Nov",
-        value1: 84,
-        value2: 80
+        value1: 0,
+        value2: 60
     },
     {
         id: 18,
         month: "Dec",
-        value1: 75,
-        value2: 88
+        value1: 0,
+        value2: 50
     }
 ];
 
