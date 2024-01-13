@@ -1,11 +1,31 @@
 import { Chart } from "react-google-charts";
 import { iconsImgs } from "../../utils/images";
+import { useEffect, useState } from "react";
 import "./deliveryStatus.css";
 
 const DeliveryStatus = () => {
-  var total = 500000;
-  var delivered = 300000;
 
+  const [total, setTotal] = useState(10);
+  const [delivered, setDelivered] = useState(1);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/orders');
+        const data = await response.json();
+        setTotal(data.total);
+        setDelivered(data.delivered);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    setTimeout(fetchData, 300);
+
+  }, [])
+
+ 
   var deliveredPercent = (delivered / total) * 100;
 
   const chartData = [
@@ -19,6 +39,7 @@ const DeliveryStatus = () => {
     colors: ["#00cc00", "#ff0000"], // Green and Red colors
     legend: "none", // Hide the legend
     backgroundColor: "transparent",
+    chartArea:{left:20,top:20,width:"80%",height:"80%"}
   };
 
   return (
@@ -36,9 +57,10 @@ const DeliveryStatus = () => {
             data={chartData}
             options={chartOptions}
             graph_id="PieChart"
-            width={"100%"}
-            height={"100%"}
+            width="100%"
+            height="100%"
             legend_toggle
+
           />
           <div
             style={{

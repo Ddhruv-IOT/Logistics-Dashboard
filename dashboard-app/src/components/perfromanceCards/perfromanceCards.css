@@ -24,6 +24,9 @@
 
 .chart {
   display: flex;
+  flex-direction: row;
+  /* align-items: space-between; */
+  justify-content: space-evenly;
 }
 
 .chart-data {
@@ -31,9 +34,9 @@
   width: 100% !important;
 }
 
-.chart-sep {
-  padding-left: 30px;
-}
+/* .chart-sep {
+  padding-left: 30px; */
+/* } */
 
 .infoText {
   font-size: 14px;

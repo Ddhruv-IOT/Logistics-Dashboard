@@ -19,21 +19,38 @@ export const transactions = [
         name: "Container Z1AX",
         image: personsImgs.person_four,
         date: "23/12/04",
-        amount: 22000
+        status: "Delivered",
+        colorClass: "delivered",
+        priority: "high"
     },
     {
         id: 12, 
         name: "Continer IdA1",
         image: personsImgs.person_three,
         date: "24/01/10",
-        amount: 20000
+        status: "Delivered",
+        colorClass: "delivered",
+        priority: "high"
     },
     {
         id: 13, 
         name: "Continer QY1A",
         image: personsImgs.person_two,
         date: "24/01/01",
-        amount: 30000
+        status: "In Transit",
+        colorClass: "transit",
+        priority: "high"
+        
+    },
+    {
+        id: 1311, 
+        name: "Continer QY1A",
+        image: personsImgs.person_two,
+        date: "24/01/01",
+        status: "In Transit",
+        colorClass: "transit",
+        priority: "general"
+        
     }
 ];
 
