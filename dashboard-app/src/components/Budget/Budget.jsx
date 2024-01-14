@@ -1,5 +1,4 @@
 import { iconsImgs } from "../../utils/images";
-import { budget } from "../../data/data";
 import { useEffect, useState } from "react";
 import "./Budget.css";
 

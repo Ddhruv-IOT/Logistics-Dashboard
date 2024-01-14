@@ -1,7 +1,6 @@
 import "./Containers.css";
 import React from "react";
 import "react-tooltip/dist/react-tooltip.css";
-import { transactions } from "../../data/data";
 import { iconsImgs } from "../../utils/images";
 import { Tooltip } from "react-tooltip";
 import { useEffect, useState } from "react";

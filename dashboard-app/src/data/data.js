@@ -13,46 +13,46 @@ export const navigationLinks = [
     { id: 9, title: 'Account', image: iconsImgs.user, link: '/account' },
     { id: 10, title: 'Settings', image: iconsImgs.gears, link: '/settings' }
 ];
-export const transactions = [
-    {
-        id: 11, 
-        name: "Container Z1AX",
-        image: personsImgs.person_four,
-        date: "23/12/04",
-        status: "Delivered",
-        colorClass: "delivered",
-        priority: "high"
-    },
-    {
-        id: 12, 
-        name: "Continer IdA1",
-        image: personsImgs.person_three,
-        date: "24/01/10",
-        status: "Delivered",
-        colorClass: "delivered",
-        priority: "high"
-    },
-    {
-        id: 13, 
-        name: "Continer QY1A",
-        image: personsImgs.person_two,
-        date: "24/01/01",
-        status: "In Transit",
-        colorClass: "transit",
-        priority: "high"
+// export const transactions = [
+//     {
+//         id: 11, 
+//         name: "Container Z1AX",
+//         image: personsImgs.person_four,
+//         date: "23/12/04",
+//         status: "Delivered",
+//         colorClass: "delivered",
+//         priority: "high"
+//     },
+//     {
+//         id: 12, 
+//         name: "Continer IdA1",
+//         image: personsImgs.person_three,
+//         date: "24/01/10",
+//         status: "Delivered",
+//         colorClass: "delivered",
+//         priority: "high"
+//     },
+//     {
+//         id: 13, 
+//         name: "Continer QY1A",
+//         image: personsImgs.person_two,
+//         date: "24/01/01",
+//         status: "In Transit",
+//         colorClass: "transit",
+//         priority: "high"
         
-    },
-    {
-        id: 1311, 
-        name: "Continer QY1A",
-        image: personsImgs.person_two,
-        date: "24/01/01",
-        status: "In Transit",
-        colorClass: "transit",
-        priority: "general"
+//     },
+//     {
+//         id: 1311, 
+//         name: "Continer QY1A",
+//         image: personsImgs.person_two,
+//         date: "24/01/01",
+//         status: "In Transit",
+//         colorClass: "transit",
+//         priority: "general"
         
-    }
-];
+//     }
+// ];
 
 export const reportData = [
     {
@@ -87,40 +87,40 @@ export const reportData = [
     }
 ];
 
-export const budget = [
-    {
-        id: 19, 
-        title: "Containers Payment",
-        type: "Automated",
-        amount: 220000
-    },
-    {
-        id: 20, 
-        title: "IoT Contract",
-        type: "Automated",
-        amount: 16000
-    },
-    {
-        id: 21, 
-        title: "Damarage",
-        type: "Manual",
-        amount: 20000
-    },
-    {
-        id: 23, 
-        title: "Taxes",
-        type: "Automated",
-        amount: 40000
-    },
+// export const budget = [
+//     {
+//         id: 19, 
+//         title: "Containers Payment",
+//         type: "Automated",
+//         amount: 220000
+//     },
+//     {
+//         id: 20, 
+//         title: "IoT Contract",
+//         type: "Automated",
+//         amount: 16000
+//     },
+//     {
+//         id: 21, 
+//         title: "Damarage",
+//         type: "Manual",
+//         amount: 20000
+//     },
+//     {
+//         id: 23, 
+//         title: "Taxes",
+//         type: "Automated",
+//         amount: 40000
+//     },
 
-    {
-        id: 231, 
-        title: "Electricity",
-        type: "Semi-Automated",
-        amount: 40000
-    }, 
+//     {
+//         id: 231, 
+//         title: "Electricity",
+//         type: "Semi-Automated",
+//         amount: 40000
+//     }, 
 
-];
+// ];
 
 export const alerts = [
     {

@@ -250,6 +250,54 @@ app.get('/money', (req, res) => {
   res.json({ budgetsData, savingsData });
 });
 
+// Define the API endpoint
+app.get('/alerts', (req, res) => {
+  const alerts = [
+    {
+      id: 24,
+      title: "Damaged",
+      count: 0,
+      priority: "HIGH"
+    },
+    {
+      id: 25,
+      title: "Low Battery",
+      count: 10,
+      priority: "LOW"
+    },
+    {
+      id: 26,
+      title: "Pressure",
+      count: 0,
+      priority: "LOW"
+    },
+    {
+      id: 261,
+      title: "Temperature",
+      count: 0,
+      priority: "LOW"
+    }
+  ];
+
+  // add color-class based on priority and count
+ alert_count = 0;
+  for (let i = 0; i < alerts.length; i++) {
+    if (alerts[i].priority === "HIGH" && alerts[i].count > 0) {
+      alerts[i].colorClass = "important-alert";
+      alert_count++;
+    } else if (alerts[i].priority === "LOW" && alerts[i].count > 0) {
+      alerts[i].colorClass = "low-p-alert";
+      alert_count++;
+    } else if (alert_count === 0){
+      alerts[i].colorClass = "zero-alert";
+    }
+  }
+
+
+  res.json({ alerts, alert_count});
+});
+
+
 
 // Start the server
 app.listen(port, () => {

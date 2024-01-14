@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import "./Savings.css";
 
 const Savings = () => {
-  // [{"id":27,"saving_amount":250000,"title":"Today's Earning","date_taken":"23/12/22","amount_left":900000,"total":1000000}]}
   const [savings, setSavings] = useState([]);
 
   useEffect(() => {
@@ -49,20 +48,24 @@ const Savings = () => {
                 <div className="grid-item-badges">
                   <span className="grid-item-badge">
                     Savings as on{" "}
-                    <span className="text-silver-v1">{saving.date_taken}</span>
-                    {" "} is {" "} £ {saving.amount_left.toLocaleString()}
+                    <span className="text-silver-v1">{saving.date_taken}</span>{" "}
+                    is £ {saving.amount_left.toLocaleString()}
                     <span className="text-silver-v1">
-                  {/* Amout left % {saving.amount_left / saving.total * 100} */}
+                      {/* Amout left % {saving.amount_left / saving.total * 100} */}
+                    </span>
                   </span>
-                  </span>
-                  
+
                   {/* <span className="grid-item-badge"> </span> */}
                 </div>
                 <div className="grid-item-progress">
-                  <div className="grid-item-fill" style={{width: `${saving.amount_left / saving.total * 100}`+"%"}}></div>
-                  <span className="grid-item-badge">
-                  
-                  </span>
+                  <div
+                    className="grid-item-fill"
+                    style={{
+                      width:
+                        `${(saving.amount_left / saving.total) * 100}` + "%",
+                    }}
+                  ></div>
+                  <span className="grid-item-badge"></span>
                 </div>
               </div>
             </div>
