@@ -1,10 +1,15 @@
 import { iconsImgs } from "../../utils/images";
 import { useEffect, useState } from "react";
+import { ImCheckboxUnchecked } from "react-icons/im";
+import { ImCheckboxChecked } from "react-icons/im";
 import "./Budget.css";
 
-const Budget = () => {
+const Budget = ({ showButton }) => {
   const [budgetData, setBudgetData] = useState([]);
+  const [selectedBudgets, setSelectedBudgets] = useState([]);
   const [balance, setBalance] = useState(0);
+  const [mbalance, setmBalance] = useState(0);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,6 +18,7 @@ const Budget = () => {
         const data = await response.json();
         setBudgetData(data.budgetsData.budgets);
         setBalance(data.savingsData[0].amount_left);
+        setmBalance(data.savingsData[0].amount_left);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -20,14 +26,36 @@ const Budget = () => {
     fetchData();
   }, []);
 
+  const [checkedStates, setCheckedStates] = useState({});
+
+  const handleButtonClick = (budgetId) => {
+    setCheckedStates((prevStates) => ({
+      ...prevStates,
+      [budgetId]: !prevStates[budgetId],
+    }));
+  };
+
+  useEffect(() => {
+    const selectedBudgetAmounts = budgetData
+      .filter((budget) => checkedStates[budget.id])
+      .map((budget) => budget.amount);
+  
+    const totalSelectedAmount = selectedBudgetAmounts.reduce((acc, amount) => acc + amount, 0);
+    
+    setBalance(mbalance-totalSelectedAmount);
+    setSelectedBudgets(selectedBudgetAmounts);
+  }, [checkedStates, budgetData]);
+
   return (
     <>
       <div className="grid-two-item grid-common grid-c4">
         <div className="grid-c-title">
-          <h3 className="grid-c-title-text">Budget</h3>
-          <button className="grid-c-title-icon">
-            <img src={iconsImgs.plus} />
-          </button>
+          <h3 className="grid-c-title-text">Payments</h3>
+          {showButton && (
+            <button className="grid-c-title-icon">
+              <img src={iconsImgs.plus} />
+            </button>
+          )}
         </div>
         <div className="grid-c-top text-silver-v1">
           <h2 className="lg-value">Cash Left</h2>
@@ -39,7 +67,17 @@ const Budget = () => {
               <div className="grid-item" key={budget.id}>
                 <div className="grid-item-l">
                   <div className="icon">
-                    <img src={iconsImgs.check} />
+                    <button
+                      onClick={() => handleButtonClick(budget.id)}
+                      className={checkedStates[budget.id] ? "checked" : ""}
+                    >
+                      {" "}
+                      {checkedStates[budget.id] ? (
+                        <ImCheckboxChecked />
+                      ) : (
+                        <ImCheckboxUnchecked />
+                      )}{" "}
+                    </button>
                   </div>
                   <p className="text text-silver-v1">
                     {budget.title} <span>{budget.type}</span>

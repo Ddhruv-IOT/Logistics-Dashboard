@@ -4,7 +4,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { iconsImgs } from "../../utils/images";
 import { Tooltip } from "react-tooltip";
 import { useEffect, useState } from "react";
-import "../Containers/Containers.css"
+import "./Devices.css"
 
 
 const Devices = () => {

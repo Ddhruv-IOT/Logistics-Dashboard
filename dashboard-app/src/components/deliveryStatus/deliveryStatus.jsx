@@ -4,28 +4,23 @@ import { useEffect, useState } from "react";
 import "./deliveryStatus.css";
 
 const DeliveryStatus = () => {
-
   const [total, setTotal] = useState(10);
   const [delivered, setDelivered] = useState(1);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/orders');
+        const response = await fetch("http://localhost:3000/orders");
         const data = await response.json();
         setTotal(data.total);
         setDelivered(data.delivered);
-
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
     setTimeout(fetchData, 300);
+  }, []);
 
-  }, [])
-
- 
   var deliveredPercent = (delivered / total) * 100;
 
   const chartData = [
@@ -39,7 +34,7 @@ const DeliveryStatus = () => {
     colors: ["#00cc00", "#ff0000"], // Green and Red colors
     legend: "none", // Hide the legend
     backgroundColor: "transparent",
-    chartArea:{left:20,top:20,width:"80%",height:"80%"}
+    chartArea: { left: 20, top: 20, width: "80%", height: "80%" },
   };
 
   return (
@@ -60,23 +55,8 @@ const DeliveryStatus = () => {
             width="100%"
             height="100%"
             legend_toggle
-
           />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              zIndex: "1",
-            }}
-          >
-            <span
-              style={{ fontSize: "12px", fontWeight: "bold", color: "White" }}
-            >
-              {deliveredPercent.toFixed(1)}%
-            </span>
-          </div>
+          <div className="pie-chart-center">{deliveredPercent.toFixed(1)}%</div>
         </div>
         <ul className="data-list">
           <li className="data-item text-silver-v1">

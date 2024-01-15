@@ -7,7 +7,16 @@ import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import "./Alerts.css";
 
+import { useNavigate } from "react-router-dom";
+
 const Alerts = () => {
+  const history = useNavigate();
+
+  const handleLinkClick = (event, id, location) => {
+    event.preventDefault();
+    history(location);
+  };
+
   const [alerts, setAlerts] = useState([]);
   const [alertCount, setAlertCount] = useState(0);
 
@@ -43,7 +52,7 @@ const Alerts = () => {
               data-tooltip-content="Alerts Available, continue to view"
               data-tooltip-place="top"
               data-effect="solid"
-            //   onClick={window.location.href = "/alerts"}
+              onClick={(event) => handleLinkClick(event, 4, "/alerts")}
             />
           ) : (
             <FaBellSlash
@@ -62,7 +71,6 @@ const Alerts = () => {
           )}
           <Tooltip id="nan-alerts" place="top" effect="solid"></Tooltip>
           <Tooltip id="on-alerts" place="top" effect="solid"></Tooltip>
-
         </button>
       </div>
       <div className="grid-c5-content">

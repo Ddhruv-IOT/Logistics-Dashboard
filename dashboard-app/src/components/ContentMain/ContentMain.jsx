@@ -18,7 +18,7 @@ const ContentMain = () => {
             <Report />
         </div>
         <div className="content-grid-two">
-            <Budget />
+            <Budget showButton={true} />
             <div className="grid-two-item">
               <div className="subgrid-two">
                 <Subscriptions />

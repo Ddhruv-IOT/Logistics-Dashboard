@@ -2,7 +2,6 @@ import "./Sidebar.css"; // path to css file
 import React from "react"; // react import
 import { navigationLinks } from "../../data/data"; // import data from data.js
 import { useEffect, useState } from "react";
-// import { Link, useHistory } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 // Now left sidebar hide and unhide
@@ -14,8 +13,6 @@ const Sidebar = () => {
 
   const handleLinkClick = (event, id, location) => {
     event.preventDefault();
-    // move to page
-    // window.location.href = location;
     history(location);
     setActiveLinkIdx(id);
   };
