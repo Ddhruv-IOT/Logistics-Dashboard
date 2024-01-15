@@ -1,6 +1,6 @@
 
 .main-content {
-    background-color: var(--clr-secondary);
+    background-color: var(--clr-primary);
     width: 100vh;
     flex: 1;
     padding: 32px;

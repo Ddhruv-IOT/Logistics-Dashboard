@@ -256,7 +256,7 @@ app.get('/alerts', (req, res) => {
     {
       id: 24,
       title: "Damaged",
-      count: 0,
+      count: 1,
       priority: "HIGH"
     },
     {
@@ -268,8 +268,8 @@ app.get('/alerts', (req, res) => {
     {
       id: 26,
       title: "Pressure",
-      count: 0,
-      priority: "LOW"
+      count: 10,
+      priority: "HIGH"
     },
     {
       id: 261,
@@ -293,9 +293,24 @@ app.get('/alerts', (req, res) => {
     }
   }
 
-
   res.json({ alerts, alert_count});
 });
+
+let randomNumber = generateRandomNumber();
+
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 10) + 1;
+}
+
+// API endpoint to get the current random number
+app.get('/api/random-number', (req, res) => {
+  res.json({ randomNumber });
+});
+
+// Increment the random number every 2 seconds
+setInterval(() => {
+  randomNumber++;
+}, 2000);
 
 
 
