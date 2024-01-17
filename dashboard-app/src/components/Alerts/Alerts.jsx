@@ -1,13 +1,10 @@
-// import { alerts } from "../../data/data";
 import { iconsImgs } from "../../utils/images";
 import { useEffect, useState } from "react";
 import { FaBell } from "react-icons/fa";
 import { FaBellSlash } from "react-icons/fa";
-import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
-import "./Alerts.css";
-
 import { useNavigate } from "react-router-dom";
+import "./Alerts.css";
 
 const Alerts = () => {
   const history = useNavigate();

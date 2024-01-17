@@ -1,9 +1,10 @@
-// import { savings } from "../../data/data";
-import { iconsImgs, personsImgs } from "../../utils/images";
+import { iconsImgs, personsImgs } from "../../../utils/images";
 import { useEffect, useState } from "react";
-import "./Savings.css";
+import "./Balance.css";
+import { useContext } from "react";
+import { context1 } from "../../../theContext";
 
-const Savings = () => {
+const Balance = ({showButton}) => {
   const [savings, setSavings] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Savings = () => {
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Earnings</h3>
         <button className="grid-c-title-icon">
-          <img src={iconsImgs.plus} />
+          { showButton && <img src={iconsImgs.plus} />}
         </button>
       </div>
       <div className="grid-c6-content">
@@ -40,7 +41,7 @@ const Savings = () => {
                 </div>
                 <div className="grid-item-top-r">
                   <span className="text-silver-v1">
-                    £ {saving.saving_amount.toLocaleString()}
+                    £ {saving.current_day_earning.toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -49,9 +50,11 @@ const Savings = () => {
                   <span className="grid-item-badge">
                     Savings as on{" "}
                     <span className="text-silver-v1">{saving.date_taken}</span>{" "}
-                    is £ {saving.amount_left.toLocaleString()}
+                    is £ {saving.saving_amount.toLocaleString()}
+                    
                     <span className="text-silver-v1">
-                      {/* Amout left % {saving.amount_left / saving.total * 100} */}
+                      {/* Amout left %*/}
+                       {/* {saving.saving_amount / saving.savings_target * 100}  */}
                     </span>
                   </span>
 
@@ -62,7 +65,7 @@ const Savings = () => {
                     className="grid-item-fill"
                     style={{
                       width:
-                        `${(saving.amount_left / saving.total) * 100}` + "%",
+                        `${(saving.saving_amount / saving.savings_target) * 100}` + "%",
                     }}
                   ></div>
                   <span className="grid-item-badge"></span>
@@ -76,4 +79,4 @@ const Savings = () => {
   );
 };
 
-export default Savings;
+export default Balance;

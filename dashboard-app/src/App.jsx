@@ -3,14 +3,18 @@ import "./App.css";
 import ContentMain from "./components/ContentMain/ContentMain";
 import Sidebar from "./components/Sidebar/Sidebar";
 import DeliveryStatus from "./components/deliveryStatus/deliveryStatus";
-import Financial from "./components/Financial/Financial";
-import Savings from "./components/Savings/Savings";
 import performanceCards from "./components/perfromanceCards/perfromanceCards";
 import Report from "./components/Report/Report";
-import Budget from "./components/Budget/Budget";
 import Alerts from "./components/Alerts/Alerts";
 import Devices from "./components/Devices/Devices";
+
+
 import BudgetPage from "./layout/BudgetFullPage/Bfp";
+import Financial from "./components/FinancialComponents/Financial/Financial";
+import Budget from "./components/FinancialComponents/Budget/Budget";
+import Balance from "./components/FinancialComponents/Balance/Balance";
+
+
 import "./components/deliveryStatus/deliveryStatus.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
@@ -25,7 +29,7 @@ function App() {
           <Route path="/alerts" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Alerts /></div> </div>} />
           <Route path="/devices" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Devices /></div> </div>} />
           <Route path="/reports" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />
-          <Route path="/savings" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />
+          <Route path="/balance" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />
           <Route path="/financial-advice" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />
           <Route path="/account" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />
           <Route path="/settings" element={<div className="adj"><div className="t1"><Sidebar /></div ><div className="t-cpm"><Budget /></div> </div>} />

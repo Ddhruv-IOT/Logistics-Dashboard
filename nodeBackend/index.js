@@ -2,10 +2,12 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
 
+app.use(bodyParser.json());
 app.use(cors());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
@@ -175,47 +177,49 @@ app.get('/containers', (req, res) => {
 
 
 // Calculate the total amount
-const totalAmount = 1000000;
+totalAmount = 1000000;
+
+ budgets = [
+  {
+    id: 19,
+    title: "Containers Payment",
+    type: "Automated",
+    amount: 220000,
+    status: "paid"
+  },
+  {
+    id: 20,
+    title: "IoT Contract",
+    type: "Automated",
+    amount: 16000,
+    status: "unpaid"
+  },
+  {
+    id: 21,
+    title: "Damarage",
+    type: "Manual",
+    amount: 20000,
+    status: "pending"
+  },
+  {
+    id: 23,
+    title: "Taxes",
+    type: "Automated",
+    amount: 40000,
+    status: "unpaid"
+  },
+  {
+    id: 231,
+    title: "Electricity",
+    type: "Semi-Automated",
+    amount: 40000,
+    status: "pending"
+  },
+];
 
 // Generate budgets data
 const generateBudgetsData = () => {
-  const budgets = [
-    {
-      id: 19,
-      title: "Containers Payment",
-      type: "Automated",
-      amount: 220000,
-      status: "paid"
-    },
-    {
-      id: 20,
-      title: "IoT Contract",
-      type: "Automated",
-      amount: 16000,
-      status: "unpaid"
-    },
-    {
-      id: 21,
-      title: "Damarage",
-      type: "Manual",
-      amount: 20000,
-      status: "pending"
-    },
-    {
-      id: 23,
-      title: "Taxes",
-      type: "Automated",
-      amount: 40000,
-      status: "unpaid"
-    },
-    {
-      id: 231,
-      title: "Electricity",
-      type: "Semi-Automated",
-      amount: 40000,
-      status: "pending"
-    },
-  ];
+  
 
   // Calculate total amount for budgets
   const budgetsTotal = budgets.reduce((total, budget) => total + budget.amount, 0);
@@ -225,17 +229,21 @@ const generateBudgetsData = () => {
 
   return { budgets, budgetsTotal, savingsStatus };
 };
-
+current_day_earning = 200000
+saving_amount = 250000
+savings_target = 500000
 // Generate savings data
 const generateSavingsData = () => {
   const savings = [
     {
       id: 27,
-      saving_amount: 250000,
       title: "Today's Earning",
-      date_taken: "23/12/22",
-      amount_left: 900000,
-      total: totalAmount
+      current_day_earning: current_day_earning,
+      date_taken: "12/1/24",
+      usable_amount: totalAmount + current_day_earning - saving_amount,
+      saving_amount: saving_amount,
+      savings_target: savings_target,
+      totalAmount: totalAmount,
     }
   ];
 
@@ -311,6 +319,24 @@ app.get('/api/random-number', (req, res) => {
 setInterval(() => {
   randomNumber++;
 }, 2000);
+
+app.post('/pay', (req, res) => {
+  const paymentData = req.body;
+  console.log('Received payment data:', paymentData);
+  totalAmount = totalAmount - paymentData.amountPaid
+  if (paymentData.billPaidFor && paymentData.amountPaid > 0) {
+    // Split the comma-separated list into an array of titles
+    const paidBillTitles = paymentData.billPaidFor.split(',').map(title => title.trim());
+  
+    // Filter out the paid bills from the budgets array
+    const updatedBudgets = budgets.filter(budget => !paidBillTitles.includes(budget.title));
+  
+    // Update the budgets array with the filtered data
+    budgets.length = 0; // Clear the original array
+    Array.prototype.push.apply(budgets, updatedBudgets);}
+  res.json({ message: paymentData});
+});
+
 
 
 

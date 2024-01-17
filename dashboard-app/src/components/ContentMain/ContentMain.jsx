@@ -2,12 +2,14 @@ import "./ContentMain.css";
 import Cards from "../perfromanceCards/perfromanceCards";
 import Transactions from "../Containers/Containers";
 import Report from "../Report/Report";
-import Budget from "../Budget/Budget";
 import Subscriptions from "../Alerts/Alerts";
-import Savings from "../Savings/Savings";
-import Loans from "../deliveryStatus/deliveryStatus";
-import Financial from "../Financial/Financial";
-// import 
+import DeliveryStatus from "../deliveryStatus/deliveryStatus";
+// import Loans from
+
+import Budget from "../FinancialComponents/Budget/Budget";
+import Balance from "../FinancialComponents/Balance/Balance";
+import Financial from "../FinancialComponents/Financial/Financial";
+
 
 const ContentMain = () => {
   return (
@@ -22,13 +24,13 @@ const ContentMain = () => {
             <div className="grid-two-item">
               <div className="subgrid-two">
                 <Subscriptions />
-                <Savings />
+                <Balance />
               </div>
             </div>
 
             <div className="grid-two-item">
               <div className="subgrid-two">
-                <Loans />
+              <DeliveryStatus/>
                 <Financial />
               </div>
             </div>
