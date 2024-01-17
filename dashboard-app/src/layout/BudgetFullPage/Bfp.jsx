@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { iconsImgs } from "../../utils/images";
 import "./Bfp.css";
 import Budget from "../../components/FinancialComponents/Budget/Budget";
-import Balance from "../../components/FinancialComponents/Balance/Balance";
+import Earnings from "../../components/FinancialComponents/Earnings/Earnings";
 import BillingOthers from "../../components/FinancialComponents/BillingOthers/BillingOthers"
 import BillingOthers1 from "../../components/FinancialComponents/BillingOthers/Bliinote1"
-import { context1 } from "../../theContext";
+import { context1 } from "../../utils/theContext";
 
 const BudgetPage = () => {
   const [data, setData] = useState();
@@ -16,7 +15,7 @@ const BudgetPage = () => {
         <div className="main-bfp">
           <div className="grd">
             <div className="savings-bfp">
-              <Balance />
+              <Earnings />
             </div>
             <div>
               <Budget showCheckBox={true} setData={setData} />

@@ -1,6 +1,6 @@
 import "./Sidebar.css"; // path to css file
 import React from "react"; // react import
-import { navigationLinks } from "../../data/data"; // import data from data.js
+import { navigationLinks } from "../../utils/navLinks";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

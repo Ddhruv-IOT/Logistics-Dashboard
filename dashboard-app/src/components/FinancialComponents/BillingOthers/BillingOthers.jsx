@@ -1,8 +1,8 @@
-import { iconsImgs, personsImgs } from "../../../utils/images";
+import { iconsImgs } from "../../../utils/images";
 import { useEffect, useState } from "react";
 import "./BillingOthers.css";
 import { useContext } from "react";
-import { context1 } from "../../../theContext";
+import { context1 } from "../../../utils/theContext";
 
 const Billingothers = ({showButton}) => {
   const contextValue = useContext(context1)

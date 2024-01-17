@@ -1,10 +1,8 @@
 import { iconsImgs, personsImgs } from "../../../utils/images";
 import { useEffect, useState } from "react";
-import "./Balance.css";
-import { useContext } from "react";
-import { context1 } from "../../../theContext";
+import "./Earnings.css";
 
-const Balance = ({showButton}) => {
+const Earnings = ({showButton}) => {
   const [savings, setSavings] = useState([]);
 
   useEffect(() => {
@@ -79,4 +77,4 @@ const Balance = ({showButton}) => {
   );
 };
 
-export default Balance;
+export default Earnings;

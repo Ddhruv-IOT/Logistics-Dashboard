@@ -4,8 +4,8 @@ import { ImCheckboxUnchecked, ImCheckboxChecked } from "react-icons/im";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { iconsImgs } from "../../../utils/images";
+import { context1 } from "../../../utils/theContext";
 import "./Budget.css";
-import { context1 } from "../../../theContext";
 
 const Budget = ({ showButton, showCheckBox, setData }) => {
   const history = useNavigate();

@@ -1,5 +1,5 @@
 import { iconsImgs } from "../../utils/images";
-import { reportData } from "../../data/data";
+import { reportData} from "../../utils/data/data"
 import { useEffect, useState } from "react";
 import "./Report.css";
 
